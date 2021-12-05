@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <gl/glut.h>
 #include <algorithm>
-#include <iostream>
 #include <windows.h>
 
 using namespace std;
@@ -68,7 +67,6 @@ void myInit() {
 	glClearColor(1, 1, 1, 1);
 	glColor3f(0, 0, 1);
 	glPointSize(1);
-
 	gluOrtho2D(0, wx, 0, wy);
 
 }

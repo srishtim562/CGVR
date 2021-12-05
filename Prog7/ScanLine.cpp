@@ -1,94 +1,93 @@
-#include <GL/glut.h>
-#include <Windows.h>
+#include <stdlib.h>
+#include <gl/glut.h>
+#include <algorithm>
+#include <iostream>
+#include <windows.h>
 
-float x1, x2, x3, x4, y1, y2, y3, y4;
-void edgedetect(float x1, float y1, float x2, float y2, int* le, int* re)
-{
-	float mx, x, temp;
-	int i;
-	if ((y2 - y1) < 0)
-	{
-		temp = y1; y1 = y2; y2 = temp;
-		temp = x1; x1 = x2; x2 = temp;
-	}
-	if ((y2 - y1) != 0)
-		mx = (x2 - x1) / (y2 - y1);
-	else 
-		mx = x2 - x1;
-	x = x1;
-	for (i = y1; i <= y2; i++)
-	{
-		if (x < (float)le[i])
-			le[i] = (int)x;
-		if (x > (float)re[i])
-			re[i] = (int)x;
-		x += mx;
-	}
-}
-void drawPixel(int x, int y)
-{
-	glColor3f(1.0, 0.0, 0.0);
-	Sleep(2); // To set the delay time
-	glBegin(GL_POINTS);
-	glVertex2i(x, y);
-	glEnd();
-	glFlush();
-}
-void scanfill(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
-{
-	int le[500], re[500], i, y;
-	for (i = 0; i < 500; i++)
-	{
-		le[i] = 500;
-		re[i] = 0;
-	}
+using namespace std;
+float x[100], y[100]; //= { 0,0,20,100,100 }, y[] = { 0,100,50,100,0 };
 
-	edgedetect(x1, y1, x2, y2, le, re);
-	edgedetect(x2, y2, x3, y3, le, re);
-	edgedetect(x3, y3, x4, y4, le, re);
-	edgedetect(x4, y4, x1, y1, le, re);
+int n, m;
+int wx = 500, wy = 500;
+static float intx[10] = { 0 };
 
-	for (y = 0; y < 500; y++)
-	{
-		if (le[y] <= re[y])
-			for (i = (int)le[y]; i < (int)re[y]; i++)
-				drawPixel(i, y);
-	}
-}
-
-void display()
-{
-	x1 = 200.0; y1 = 200.0;
-	x2 = 100.0; y2 = 300.0;
-	x3 = 200.0; y3 = 400.0;
-	x4 = 300.0; y4 = 300.0;
-	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(0.0, 0.0, 1.0);
-	glBegin(GL_LINE_LOOP);
+void drawLine(float x1, float y1, float x2, float y2) {
+	Sleep(100);
+	glColor3f(1, 0, 0);
+	glBegin(GL_LINES);
 	glVertex2f(x1, y1);
 	glVertex2f(x2, y2);
-	glVertex2f(x3, y3);
-	glVertex2f(x4, y4);
 	glEnd();
-	scanfill(x1, y1, x2, y2, x3, y3, x4, y4);
 	glFlush();
-}
-void myInit()
-{
-	glClearColor(1.0, 1.0, 1.0, 1.0);
-	glColor3f(1.0, 0.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0.0, 499.0, 0.0, 499.0);
+
 }
 
-void main(int argc, char **argv)
-{
+void edgeDetect(float x1, float y1, float x2, float y2, int scanline) {
+
+	float temp;
+	if (y2 < y1) {
+
+		temp = x1; x1 = x2; x2 = temp;
+		temp = y1; y1 = y2; y2 = temp;
+	}
+
+	if (scanline > y1 && scanline < y2)
+		intx[m++] = x1 + (scanline - y1) * (x2 - x1) / (y2 - y1);
+}
+
+void scanFill(float x[], float y[]) {
+	for (int s1 = 0; s1 <= wy; s1++) {
+		m = 0;
+		for (int i = 0; i < n; i++) {
+
+			edgeDetect(x[i], y[i], x[(i + 1) % n], y[(i + 1) % n], s1);
+		}
+		sort(intx, (intx + m));
+		if (m >= 2)
+			for (int i = 0; i < m; i = i + 2)
+				drawLine(intx[i], s1, intx[i + 1], s1);
+
+	}
+
+}
+
+void display_filled_polygon() {
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLineWidth(2);
+	glBegin(GL_LINE_LOOP);
+	for (int i = 0; i < n; i++)
+		glVertex2f(x[i], y[i]);
+	glEnd();
+	scanFill(x, y);
+	//glFlush();
+}
+
+void myInit() {
+
+	glClearColor(1, 1, 1, 1);
+	glColor3f(0, 0, 1);
+	glPointSize(1);
+
+	gluOrtho2D(0, wx, 0, wy);
+
+}
+
+void main(int argc, char **argv) {
 	glutInit(&argc, argv);
+	printf("Enter no. of sides: \n");
+	scanf_s("%d", &n);
+	printf("Enter coordinates of endpoints: \n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("X-coord Y-coord: \n");
+		scanf_s("%f %f", &x[i], &y[i]);
+	}
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
-	glutCreateWindow("Scan Line Algorithm");
-	glutDisplayFunc(display);
+	glutInitWindowPosition(0, 0);
+	glutCreateWindow("Scan Line");
+	glutDisplayFunc(display_filled_polygon);
 	myInit();
 	glutMainLoop();
 }

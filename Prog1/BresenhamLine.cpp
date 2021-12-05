@@ -5,7 +5,7 @@ int x1, x2, y1, y2, n;
 int flag = 0;
 void drawPixel(int x, int y)
 {
-    glColor3f(1, 0, 0);
+    glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_POINTS);
         glVertex2i(x, y);
     glEnd();
@@ -19,8 +19,10 @@ void drawLine()     //Bresenham's Algorithm
     int x, y;
     dx = x2 - x1;
     dy = y2 - y1;
-    if (dx < 0)dx = -dx;
-    if (dy < 0)dy = -dy;
+    if (dx < 0)
+        dx = -dx;
+    if (dy < 0)
+        dy = -dy;
     incx = 1;
     if (x2 < x1)
         incx = -1;
@@ -67,21 +69,20 @@ void drawLine()     //Bresenham's Algorithm
 
                 e += inc2;
             y += incy;
-
             drawPixel(x, y);
         }
     }
     glFlush();
 }
 
-void myinit()
+void myInit()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(1.0, 1.0, 1.0, 0.0);
     gluOrtho2D(-250, 250, -250, 250);
 }
 
-void MyMouse(int button, int state, int x, int y)
+void myMouse(int button, int state, int x, int y)
 {
     switch (button)
     {
@@ -135,8 +136,8 @@ int main(int argc, char **argv)
     glutInitWindowSize(500, 500);
     glutInitWindowPosition(100, 200);
     glutCreateWindow("LINE");
-    myinit();
-    glutMouseFunc(MyMouse); //INCLUDE TO USE MOUSE, REMOVE WHILE USING KEYBOARD
+    myInit();
+    glutMouseFunc(myMouse); //INCLUDE TO USE MOUSE, REMOVE WHILE USING KEYBOARD
     glutDisplayFunc(display);
     //glutDisplayFunc(displayKey);//INCLUDE TO USE KEYBOARD, REMOVE WHILE USING MOUSE
     glutMainLoop();

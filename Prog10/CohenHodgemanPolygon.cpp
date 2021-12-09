@@ -112,7 +112,7 @@ void init()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-// Implements Sutherland�Hodgman algorithm 
+// Implements Sutherland-Hodgman algorithm 
 void display()
 {
 	init();

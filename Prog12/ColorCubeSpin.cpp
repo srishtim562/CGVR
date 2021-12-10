@@ -98,11 +98,11 @@ void main(int argc, char** argv)
 
 	glEnable(GL_DEPTH_TEST); // Enable hidden surface removal 
 	glEnableClientState(GL_COLOR_ARRAY);
-	glEnableClientState(GL_NORMAL_ARRAY);
+	//glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
 	glColorPointer(3, GL_FLOAT, 0, colors);
-	glNormalPointer(GL_FLOAT, 0, vertices);		//normals = vertices
+	//glNormalPointer(GL_FLOAT, 0, vertices);		//normals = vertices
 	glColor3f(1.0, 1.0, 1.0);
 	glutMainLoop();
 }

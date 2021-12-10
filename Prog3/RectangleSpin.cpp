@@ -24,7 +24,6 @@ void spinDisplay()
 
 	glutSetWindow(doubleb);
 	glutPostRedisplay();
-
 }
 
 void myMouse(int btn, int state, int x, int y)

@@ -26,16 +26,16 @@ void plotPixels(GLint h, GLint k, GLint x, GLint y)
 
 void drawCircle(GLint h, GLint k, GLint r)	//Midpoint circle drawing algorithm
 {
-	GLint d = 1 - r, x = 0, y = r;
+	GLint d = 3 - 2 * r, x = 0, y = r;
 
 	while (y > x)
 	{
 		plotPixels(h, k, x, y);
 		if (d < 0)
-			d += ((2 * x) + 3);
+			d = d + 4 * x + 6;
 		else
 		{
-			d += (2 * (x - y) + 5);
+			d = d + 4 * (x - y) + 10;
 			--y;
 		}
 		++x;

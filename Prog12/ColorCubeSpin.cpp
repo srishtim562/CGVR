@@ -5,9 +5,11 @@ GLfloat vertices[] = {-1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
 1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 
 1.0, 1.0, 1.0, -1.0, 1.0, 1.0};		//8 vertices = 24 elements
 
-GLfloat normals[] = {-1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0, 
+/*
+GLfloat normals[] = {-1.0, -1.0, -1.0, 1.0, -1.0, -1.0, 1.0,
 1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 
 1.0, 1.0, 1.0, -1.0, 1.0, 1.0};		//24 elements, equal to vertices[]
+*/
 
 GLfloat colors[] = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 
 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0};	//8 colors = 24 elements
@@ -100,7 +102,7 @@ void main(int argc, char** argv)
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
 	glColorPointer(3, GL_FLOAT, 0, colors);
-	glNormalPointer(GL_FLOAT, 0, normals);
+	glNormalPointer(GL_FLOAT, 0, vertices);		//normals = vertices
 	glColor3f(1.0, 1.0, 1.0);
 	glutMainLoop();
 }

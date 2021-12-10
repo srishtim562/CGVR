@@ -4,15 +4,15 @@
 
 //RIGHT CLICK TO SHOW REFLECTED HOUSE
 
-float house[11][2] = { {100, 200}, {200, 250}, {300, 200}, {100, 200}, {100, 100}, {175, 100}, 
-	{175, 150}, {225, 150}, {225, 100}, {300, 100}, {300, 200} };
+float house[11][2] = {{100, 200}, {200, 250}, {300, 200}, {100, 200}, {100, 100}, {175, 100}, 
+	{175, 150}, {225, 150}, {225, 100}, {300, 100}, {300, 200}};
 int angle;
 float m, c, theta;
 
 void display()
 {
 	glClearColor(1, 1, 1, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(-450, 450, -450, 450);
@@ -42,7 +42,7 @@ void display()
 void display2()
 {
 	glClearColor(1, 1, 1, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(-450, 450, -450, 450);

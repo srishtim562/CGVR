@@ -16,7 +16,7 @@ void myInit()
 }
 void spinDisplay()
 {
-	spin = spin + 0.00025;
+	spin += 0.00025;
 	if (spin > 360) 
 		spin -= 360;
 	x = cos(degToRad * spin);

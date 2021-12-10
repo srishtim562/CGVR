@@ -12,8 +12,8 @@ void myInit()
 	glClearColor(1, 1, 1, 1);
 	glColor3f(1, 0, 0);
 	gluOrtho2D(-2, 2, -2, 2);
-
 }
+
 void spinDisplay()
 {
 	spin += 0.00025;
@@ -33,7 +33,6 @@ void myMouse(int btn, int state, int x, int y)
 	if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
 		glutIdleFunc(NULL);
 }
-
 
 void myReshape(int w, int h)
 {
@@ -63,6 +62,7 @@ void square()
 	glEnd();
 
 }
+
 void displaySingle()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -79,7 +79,6 @@ void displayDouble()
 
 int main(int argc, char** argv)
 {
-
 	glutInit(&argc, argv);
 
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);

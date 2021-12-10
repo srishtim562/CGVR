@@ -29,7 +29,7 @@ int y_intersect(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 }
 
 // This functions clips all the edges w.r.t one clip edge of clipping area 
-void clip(int poly_points[][2], int& poly_size, int x1, int y1, int x2, int y2)
+void clip(int poly_points[][2], int &poly_size, int x1, int y1, int x2, int y2)
 {
 	int new_points[MAX_POINTS][2], new_poly_size = 0;
 
@@ -117,7 +117,7 @@ void display()
 	{
 		int k = (i + 1) % clipper_size;
 
-		// We pass the current array of vertices, it's size and the end points of the selected clipper line 
+		// We pass the current array of vertices, its size and the end points of the selected clipper line 
 		clip(poly_points, poly_size, clipper_points[i][0], 
 			clipper_points[i][1], clipper_points[k][0], clipper_points[k][1]);
 	}
@@ -135,7 +135,7 @@ int main(int argc, char **argv)
 	for (int i = 0; i < poly_size; i++)
 	{
 		printf("Polygon Vertex:\n");
-		scanf_s("%d%d", &poly_points[i][0], &poly_points[i][1]);
+		scanf_s("%d %d", &poly_points[i][0], &poly_points[i][1]);
 		org_poly_points[i][0] = poly_points[i][0];
 		org_poly_points[i][1] = poly_points[i][1];
 	}
@@ -145,15 +145,14 @@ int main(int argc, char **argv)
 	for (int i = 0; i < clipper_size; i++)
 	{
 		printf("Clip Vertex:\n");
-		scanf_s("%d%d", &clipper_points[i][0], &clipper_points[i][1]);
+		scanf_s("%d %d", &clipper_points[i][0], &clipper_points[i][1]);
 	}
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(400, 400);
+	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Polygon Clipping");
 	glutDisplayFunc(display);
 	glutMainLoop();
-	return 0;
 }

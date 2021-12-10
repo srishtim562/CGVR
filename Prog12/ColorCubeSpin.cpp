@@ -19,7 +19,6 @@ GLubyte cubeIndices[] = {0, 3, 2, 1, 2, 3, 7, 6, 0, 4, 7, 3, 1, 2,
 6, 5, 4, 5, 6, 7, 0, 1, 5, 4};		
 
 static GLfloat theta[] = {0.0, 0.0, 0.0};
-static GLfloat beta[] = {0.0, 0.0, 0.0};
 static GLint axis = 2;
 
 void delay(float secs)
@@ -28,10 +27,9 @@ void delay(float secs)
 	while ((clock() / CLOCKS_PER_SEC) < end);
 }
 
-void displaySingle(void)
+void displaySingle()
 {
 	// display callback, clear frame buffer and z buffer, rotate cube and draw, swap buffers 
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
@@ -45,7 +43,6 @@ void displaySingle(void)
 		glVertex3f(0.0, 0.0, 0.0);
 		glVertex3f(1.0, 1.0, 1.0);
 	glEnd();
-
 	glFlush();
 }
 
@@ -54,7 +51,8 @@ void spinCube()
 	// Idle callback, spin cube 2 degrees about selected axis 
 	delay(0.01);
 	theta[axis] += 2.0;
-	if (theta[axis] > 360.0) theta[axis] -= 360.0;
+	if (theta[axis] > 360.0) 
+		theta[axis] -= 360.0;
 	glutPostRedisplay();
 }
 
@@ -85,7 +83,6 @@ void myReshape(int w, int h)
 
 void main(int argc, char** argv)
 {
-	//Window 1
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowPosition(100, 100);
@@ -103,6 +100,5 @@ void main(int argc, char** argv)
 	glVertexPointer(3, GL_FLOAT, 0, vertices);
 	glColorPointer(3, GL_FLOAT, 0, colors);
 	//glNormalPointer(GL_FLOAT, 0, vertices);		//normals = vertices
-	glColor3f(1.0, 1.0, 1.0);
 	glutMainLoop();
 }

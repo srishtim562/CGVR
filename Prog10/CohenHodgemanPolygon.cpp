@@ -4,7 +4,8 @@
 int poly_size, poly_points[20][2], org_poly_size, org_poly_points[20][2], clipper_size, clipper_points[20][2];
 const int MAX_POINTS = 20;
 
-void drawPoly(int p[][2], int n) {
+void drawPoly(int p[][2], int n) 
+{
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < n; i++)
 		glVertex2f(p[i][0], p[i][1]);
@@ -28,8 +29,7 @@ int y_intersect(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 }
 
 // This functions clips all the edges w.r.t one clip edge of clipping area 
-void clip(int poly_points[][2], int& poly_size,
-	int x1, int y1, int x2, int y2)
+void clip(int poly_points[][2], int& poly_size, int x1, int y1, int x2, int y2)
 {
 	int new_points[MAX_POINTS][2], new_poly_size = 0;
 

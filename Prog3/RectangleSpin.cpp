@@ -51,16 +51,15 @@ void myReshape(int w, int h)
 void square()
 {
 	glBegin(GL_QUADS);
-	glColor3f(01, 0, 0);
-	glVertex2f(x, y);
-	glColor3f(0, 01, 0);
-	glVertex2f(-y, x);
-	glColor3f(0, 0, 01);
-	glVertex2f(-x, -y);
-	glColor3f(01, 0, 01);
-	glVertex2f(y, -x);
+		glColor3f(1, 0, 0);
+		glVertex2f(x, y);
+		glColor3f(0, 1, 0);
+		glVertex2f(-y, x);
+		glColor3f(0, 0, 1);
+		glVertex2f(-x, -y);
+		glColor3f(1, 0, 1);
+		glVertex2f(y, -x);
 	glEnd();
-
 }
 
 void displaySingle()
@@ -77,22 +76,22 @@ void displayDouble()
 	glutSwapBuffers();
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(0, 0);
-	glutCreateWindow("single buffer");
+	glutCreateWindow("Single buffer");
 	myInit();
 	glutDisplayFunc(displaySingle);
 	glutReshapeFunc(myReshape);
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
-	glutInitWindowPosition(500, 00);
-	doubleb = glutCreateWindow("double buffer");
+	glutInitWindowPosition(500, 0);
+	doubleb = glutCreateWindow("Double buffer");
 	myInit();
 	glutDisplayFunc(displayDouble);
 	glutReshapeFunc(myReshape);

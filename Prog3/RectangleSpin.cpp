@@ -9,8 +9,8 @@ int doubleb;
 
 void myInit()
 {
-	glClearColor(01, 01, 001, 01);
-	glColor3f(01, 0, 0);
+	glClearColor(1, 1, 1, 1);
+	glColor3f(1, 0, 0);
 	gluOrtho2D(-2, 2, -2, 2);
 
 }

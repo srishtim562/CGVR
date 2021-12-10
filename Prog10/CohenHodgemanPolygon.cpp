@@ -4,9 +4,6 @@
 int poly_size, poly_points[20][2], org_poly_size, org_poly_points[20][2], clipper_size, clipper_points[20][2];
 const int MAX_POINTS = 20;
 
-
-// Returns x-value of point of intersection of two lines 
-
 void drawPoly(int p[][2], int n) {
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < n; i++)
@@ -14,18 +11,16 @@ void drawPoly(int p[][2], int n) {
 	glEnd();
 }
 
-int x_intersect(int x1, int y1, int x2, int y2,
-	int x3, int y3, int x4, int y4)
+// Returns x-value of point of intersection of two lines 
+int x_intersect(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 {
 	int num = (x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4);
 	int den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
 	return num / den;
 }
 
-// Returns y-value of point of intersectipn of 
-// two lines 
-int y_intersect(int x1, int y1, int x2, int y2,
-	int x3, int y3, int x4, int y4)
+// Returns y-value of point of intersectipn of two lines 
+int y_intersect(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 {
 	int num = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4);
 	int den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
@@ -89,8 +84,7 @@ void clip(int poly_points[][2], int& poly_size,
 		}
 	}
 
-	// Copying new points into original array
-	// and changing the no. of vertices
+	// Copying new points into original array and changing the no. of vertices
 	poly_size = new_poly_size;
 	for (int i = 0; i < new_poly_size; i++)
 	{

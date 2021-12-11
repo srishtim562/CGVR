@@ -21,23 +21,24 @@ void plotPixels(GLint h, GLint k, GLint x, GLint y)
 	drawPixel(-y + h, -x + k);
 }
 
-void drawCircle(GLint h, GLint k, GLint r)	//Midpoint circle drawing algorithm
+void drawCircle(GLint h, GLint k, GLint r)	//Bresenham's circle drawing algorithm
 {
-	GLint d = 1 - r, x = 0, y = r;
+	GLint d = 3 - 2 * r, x = 0, y = r;
 
 	while (y > x)
 	{
 		plotPixels(h, k, x, y);
 		if (d < 0)
-			d += ((2 * x) + 3);
+			d = d + 4 * x + 6;
 		else
 		{
-			d += (2 * (x - y) + 5);
+			d = d + 4 * (x - y) + 10;
 			--y;
 		}
 		++x;
 	}
 	plotPixels(h, k, x, y);
+	glFlush();
 }
 	
 void drawCylinder()		//By repeating circles

@@ -10,8 +10,8 @@ void drawPixel(int x, int y)
         glVertex2i(x, y);
     glEnd();
     glFlush();
-
 }
+
 void drawLine()     //Bresenham's Algorithm
 {
     int dx, dy, i, e;

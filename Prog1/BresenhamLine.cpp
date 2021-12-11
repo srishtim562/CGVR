@@ -31,7 +31,7 @@ void drawLine()     //Bresenham's Algorithm
         incy = -1;
     x = x1;
     y = y1;
-    if (dx > dy)
+    if (dx > dy)    //Slope: m < 1
     {
         drawPixel(x, y);
         e = 2 * dy - dx;

@@ -24,7 +24,7 @@ void plotPixels(GLint h, GLint k, GLint x, GLint y)
 	drawPixel(-y + h, -x + k);
 }
 
-void drawCircle(GLint h, GLint k, GLint r)	//Midpoint circle drawing algorithm
+void drawCircle(GLint h, GLint k, GLint r)	//Bresenham's circle drawing algorithm
 {
 	GLint d = 3 - 2 * r, x = 0, y = r;
 

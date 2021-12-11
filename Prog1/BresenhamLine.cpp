@@ -52,7 +52,6 @@ void drawLine()     //Bresenham's Algorithm
     }
     else
     {
-
         drawPixel(x, y);
         e = 2 * dx - dy;
         inc1 = 2 * (dx - dy);
@@ -66,8 +65,8 @@ void drawLine()     //Bresenham's Algorithm
 
             }
             else
-
                 e += inc2;
+            
             y += incy;
             drawPixel(x, y);
         }
@@ -110,6 +109,7 @@ void myMouse(int button, int state, int x, int y)
             break;
         }
 }
+
 void display()
 {}
 
@@ -123,6 +123,7 @@ void displayKey()
         drawLine();
     }
 }
+
 int main(int argc, char **argv)
 {
 

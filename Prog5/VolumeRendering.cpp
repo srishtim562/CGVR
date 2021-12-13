@@ -4,8 +4,6 @@
 
 #include <stdio.h>
 #include <GL/glut.h>
-#define WINDOW_HEIGHT 600
-#define WINDOW_WIDTH 600
 
  // point is now an array of 3 float values
 typedef float point[3];
@@ -87,7 +85,6 @@ void display()
 	glFlush();
 }
 
-
 void main(int argc, char** argv)
 {
 	printf("No. of divisions: ");
@@ -95,7 +92,7 @@ void main(int argc, char** argv)
 	glutInit(&argc, argv);
 	// To view the behind triangle, GLUT_DEPTH is for hidden surface removal
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+	glutInitWindowSize(600, 600);
 	glutCreateWindow("3D Gasket");
 	myInit();
 	glutDisplayFunc(display);

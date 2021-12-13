@@ -22,9 +22,11 @@ int n;
 void triangle(point a, point b, point c)
 {
 	// Display 1 triangle
+        glBegin(GL_TRIANGLES);
 	glVertex3fv(a);
 	glVertex3fv(b);
 	glVertex3fv(c);
+        glEnd();
 }
 
 void tetrahedron(point p1, point p2, point p3, point p4)
@@ -78,9 +80,7 @@ void myInit()
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glBegin(GL_TRIANGLES);
 	divideTetrahedron(v[0], v[1], v[2], v[3], n);
-	glEnd();
 	glFlush();
 }
 

@@ -39,7 +39,6 @@ void tetrahedron(point p1, point p2, point p3, point p4)
 	triangle(p2, p3, p4);
 }
 
-
 void divideTetrahedron(point p1, point p2, point p3, point p4, int m)
 {
 	point mid[6];

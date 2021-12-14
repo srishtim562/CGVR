@@ -3,9 +3,11 @@
 
 int x1, x2, y1, y2, n;
 int flag = 0;
+
 void drawPixel(int x, int y)
 {
     glColor3f(1.0, 0.0, 0.0);
+    glPointSize(2.0);
     glBegin(GL_POINTS);
         glVertex2i(x, y);
     glEnd();
@@ -16,7 +18,7 @@ void drawLine()     //Bresenham's Algorithm
 {
     int dx, dy, i, e;
     int incx, incy, inc1, inc2;
-    int x, y;
+    int x = x1, y = y1;
     dx = x2 - x1;
     dy = y2 - y1;
     if (dx < 0)
@@ -24,14 +26,13 @@ void drawLine()     //Bresenham's Algorithm
     if (dy < 0)
         dy = -dy;
     incx = 1;
+    incy = 1;
     if (x2 < x1)
         incx = -1;
-    incy = 1;
     if (y2 < y1)
         incy = -1;
-    x = x1;
-    y = y1;
-    if (dx > dy)    //Slope: m < 1
+
+    if (dx > dy)
     {
         drawPixel(x, y);
         e = 2 * dy - dx;
@@ -66,7 +67,6 @@ void drawLine()     //Bresenham's Algorithm
             }
             else
                 e += inc2;
-            
             y += incy;
             drawPixel(x, y);
         }
@@ -123,7 +123,6 @@ void displayKey()
         drawLine();
     }
 }
-
 int main(int argc, char **argv)
 {
 

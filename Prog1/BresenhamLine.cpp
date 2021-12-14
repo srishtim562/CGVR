@@ -115,7 +115,7 @@ void displayKeyboard()
 	}
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	int choice;
 	printf("Press 1 for keyboard, 2 for mouse: ");

@@ -60,7 +60,7 @@ void display()
 	glEnd();
 	glFlush();
 }
-/*
+
 void myReshape(int w, int h)
 {
 	glViewport(0, 0, w, h);
@@ -78,7 +78,7 @@ void myReshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glutPostRedisplay();
 }
-*/
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 	glutInitWindowSize(500, 500);
 	glutCreateWindow("Sphere");
 	glClearColor(1.0, 1.0, 1.0, 1.0);
-	//glutReshapeFunc(myReshape);
+	glutReshapeFunc(myReshape);
 	glutDisplayFunc(display);
 	glEnable(GL_DEPTH_TEST);
 	glutMainLoop();

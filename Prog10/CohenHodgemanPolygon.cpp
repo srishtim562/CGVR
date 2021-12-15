@@ -1,14 +1,14 @@
 #include <GL/glut.h>
 #include <stdio.h>
 
-int poly_size, poly_points[20][2], org_poly_size, org_poly_points[20][2], clipper_size, clipper_points[20][2];
 const int MAX_POINTS = 20;
+int poly_size, poly_points[MAX_POINTS][2], org_poly_size, org_poly_points[MAX_POINTS][2], clipper_size, clipper_points[MAX_POINTS][2];
 
 void drawPoly(int p[][2], int n) 
 {
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < n; i++)
-		glVertex2f(p[i][0], p[i][1]);
+		glVertex2iv(p[i]);
 	glEnd();
 }
 
@@ -96,9 +96,9 @@ void clip(int poly_points[][2], int &poly_size, int x1, int y1, int x2, int y2)
 void init()
 {
 	glClearColor(1.0, 1.0, 1.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0.0, 500.0, 0.0, 500.0, 0.0, 500.0);
+	/*glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();*/
+	gluOrtho2D(0.0, 500.0, 0.0, 500.0);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -126,7 +126,6 @@ void display()
 	glFlush();
 }
 
-//Driver code 
 int main(int argc, char **argv)
 {
 	printf("Enter no. of vertices: ");

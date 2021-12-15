@@ -33,7 +33,7 @@ void myMouse(int btn, int state, int x, int y)
 	if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
 		glutIdleFunc(NULL);
 }
-
+/*
 void myReshape(int w, int h)
 {
 	glViewport(0, 0, w, h);
@@ -47,7 +47,7 @@ void myReshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
-
+*/
 void square()
 {
 	glBegin(GL_QUADS);

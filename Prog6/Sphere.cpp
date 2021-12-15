@@ -6,7 +6,6 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glColor3f(1.0, 0.0, 0.0);
-	glLoadIdentity();
 
 	float c = 3.142 / 180;
 	float x, y, z, thetar, phir, phir20, phi, theta;

@@ -9,7 +9,8 @@ GLfloat colors[] = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0,
 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0};	//8 colors = 24 elements
 
 //Number the vertices in the order of drawing, trace out 6 faces of the cube
-GLubyte cubeIndices[] = {0, 3, 2, 1, 2, 3, 7, 6, 0, 4, 7, 3, 1, 2, 6, 5, 4, 5, 6, 7, 0, 1, 5, 4};		
+GLubyte cubeIndices[] = {0, 3, 2, 1, 2, 3, 7, 6, 0, 4, 7, 3, 1, 2, 
+6, 5, 4, 5, 6, 7, 0, 1, 5, 4};		
 
 static GLfloat theta[] = {0.0, 0.0, 0.0};
 static GLint axis = 2;
@@ -20,7 +21,7 @@ void delay(float secs)
 	while ((clock() / CLOCKS_PER_SEC) < end);
 }
 
-void displaySingle()
+void display()
 {
 	// display callback, clear frame buffer and z buffer, rotate cube and draw, swap buffers 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -82,7 +83,7 @@ void main(int argc, char** argv)
 	glutInitWindowSize(500, 500);
 	glutCreateWindow("Color Cube Spin");
 	glutReshapeFunc(myReshape);
-	glutDisplayFunc(displaySingle);
+	glutDisplayFunc(display);
 	glutIdleFunc(spinCube);
 	glutMouseFunc(mouse);
 

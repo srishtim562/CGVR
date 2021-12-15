@@ -61,8 +61,8 @@ void display2()
 	float y2 = m * x2 + c;
 	glColor3f(0, 1, 0);
 	glBegin(GL_LINES);
-	glVertex2f(x1, y1);
-	glVertex2f(x2, y2);
+		glVertex2f(x1, y1);
+		glVertex2f(x2, y2);
 	glEnd();
 	glFlush();
 
@@ -70,7 +70,7 @@ void display2()
 	glPushMatrix();
 	glTranslatef(0, c, 0);
 	theta = atan(m);
-	theta = theta * 180 / 3.14;
+	theta = theta * 180 / 3.14;		//radians to degrees
 	glRotatef(theta, 0, 0, 1);
 	glScalef(1, -1, 1);
 	glRotatef(-theta, 0, 0, 1);
@@ -81,16 +81,6 @@ void display2()
 	glEnd();
 	glPopMatrix();
 	glFlush();
-}
-
-void myInit() 
-{
-	glClearColor(1.0, 1.0, 1.0, 1.0);
-	glColor3f(1.0, 0.0, 0.0);
-	glLineWidth(2.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(-250, 250, -250, 250);
 }
 
 void mouse(int btn, int state, int x, int y) 
@@ -114,6 +104,5 @@ void main(int argc, char **argv)
 	glutCreateWindow("House Rotation");
 	glutDisplayFunc(display);
 	glutMouseFunc(mouse);
-	myInit();
 	glutMainLoop();
 }

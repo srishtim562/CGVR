@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 	glutCreateWindow("Single buffer");
 	myInit();
 	glutDisplayFunc(displaySingle);
-	glutReshapeFunc(myReshape);
+	//glutReshapeFunc(myReshape);
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(500, 500);
@@ -94,7 +94,7 @@ int main(int argc, char **argv)
 	doubleb = glutCreateWindow("Double buffer");
 	myInit();
 	glutDisplayFunc(displayDouble);
-	glutReshapeFunc(myReshape);
+	//glutReshapeFunc(myReshape);
 	glutIdleFunc(spinDisplay);
 	glutMouseFunc(myMouse);
 

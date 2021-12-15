@@ -74,7 +74,6 @@ void myReshape(int w, int h)
 
 	glTranslatef(0, 0, -1);
 	glRotatef(-45, 0, 1, 0);
-	glMatrixMode(GL_MODELVIEW);
 	glutPostRedisplay();
 }
 

@@ -1,5 +1,6 @@
 #include <GL/glut.h>
 #include <math.h>
+#define c 3.142/180
 
 void display() 
 {
@@ -7,7 +8,6 @@ void display()
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glColor3f(1.0, 0.0, 0.0);
 
-	float c = 3.142 / 180;
 	float x, y, z, thetar, phir, phir20, phi, theta;
 
 	for (phi = -80.0; phi <= 80.0; phi += 20.0)

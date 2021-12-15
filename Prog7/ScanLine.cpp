@@ -44,7 +44,6 @@ void scanFill(float x[], float y[])
 		if (m >= 2)
 			for (int i = 0; i < m; i += 2)
 				drawLine(intx[i], s1, intx[i + 1], s1);
-
 	}
 }
 

@@ -5,7 +5,7 @@
 using namespace std;
 float x[100], y[100]; //= { 0,0,20,100,100 }, y[] = { 0,100,50,100,0 };
 
-int n, m, wx = 500, wy = 500;
+int n, m;
 static float intx[10] = { 0 };
 
 void drawLine(float x1, float y1, float x2, float y2) 
@@ -64,7 +64,7 @@ void myInit()
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glColor3f(0.0, 0.0, 1.0);
 	glPointSize(1);
-	gluOrtho2D(0, wx, 0, wy);
+	gluOrtho2D(0, 500, 0, 500);
 }
 
 void main(int argc, char **argv) 

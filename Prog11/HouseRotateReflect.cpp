@@ -9,7 +9,6 @@ float house[11][2] = {{100, 200}, {200, 250}, {300, 200}, {100, 200}, {100, 100}
 int angle;
 float m, c, theta;
 
-
 void myInit()
 {
 	glClearColor(1, 1, 1, 0);

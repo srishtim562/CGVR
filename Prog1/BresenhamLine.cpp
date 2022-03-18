@@ -72,7 +72,6 @@ void drawLine()
 			drawPixel(x, y);
 		}
 	}
-	glFlush();
 }
 
 void myInit()

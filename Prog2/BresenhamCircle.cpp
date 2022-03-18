@@ -114,6 +114,5 @@ int main(int argc, char** argv)
 
 		default: printf("Invalid choice\n");
 	}
-
 	glutMainLoop();
 }

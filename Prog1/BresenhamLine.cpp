@@ -17,19 +17,19 @@ void drawPixel(int x, int y)
 void drawLine()
 {
 	int x = x1, y = y1, dx = x2 - x1, dy = y2 - y1;
-	int incx, incy, inc1, inc2, e, i;
+	int incx = 1, incy = 1, inc1, inc2, e;
 
 	if (dx < 0)
+	{
 		dx = -dx;
-	if (dy < 0)
-		dy = -dy;
-
-	incx = 1;
-	incy = 1;
-	if (x2 < x1)
 		incx = -1;
-	if (y2 < y1)
+	}
+
+	if (dy < 0)
+	{
+		dy = -dy;
 		incy = -1;
+	}
 
 	if (dx > dy)		//Slope: m < 1
 	{

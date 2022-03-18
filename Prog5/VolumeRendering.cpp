@@ -73,13 +73,13 @@ void divideTetrahedron(point p1, point p2, point p3, point p4, int m)
 
 void myInit()
 {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glOrtho(-300.0, 300.0, -300.0, 300.0, -300.0, 300.0);
 }
 
 void display()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	divideTetrahedron(v[0], v[1], v[2], v[3], n);
 	glFlush();
 }

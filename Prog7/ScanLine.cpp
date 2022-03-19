@@ -13,8 +13,8 @@ void drawLine(float x1, float y1, float x2, float y2)
 	Sleep(100);
 	glColor3f(1, 0, 0);
 	glBegin(GL_LINES);
-	glVertex2f(x1, y1);
-	glVertex2f(x2, y2);
+		glVertex2f(x1, y1);
+		glVertex2f(x2, y2);
 	glEnd();
 	glFlush();
 }

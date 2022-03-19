@@ -1,11 +1,20 @@
 #include <GL/glut.h>
 #include <math.h>
+
 #define c 3.142/180
+
+void init()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glOrtho(-2, 2, -2, 2, -2, 2);
+	glTranslatef(0, 0, -1);
+	glRotatef(-45, 0, 1, 0);
+}
 
 void display()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glColor3f(1.0, 0.0, 0.0);
 
 	float x, y, z, thetar, phir, phir20, phi, theta;
@@ -58,15 +67,6 @@ void display()
 	}
 	glEnd();
 	glFlush();
-}
-
-void init()
-{
-	glClearColor(1, 1, 1, 1);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glOrtho(-2, 2, -2, 2, -2, 2);
-	glTranslatef(0, 0, -1);
-	glRotatef(-45, 0, 1, 0);
 }
 
 int main(int argc, char** argv)

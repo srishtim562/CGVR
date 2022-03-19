@@ -1,11 +1,17 @@
 #include <GL/glut.h>
 #include <math.h>
 
-#define degToRad 180.0/3.14159
+#define degToRad 180/3.14159
 
-static GLfloat spin = 0.00;
-GLfloat x, y;
+static float spin = 0.0;
+float x, y;
 int doubleb;
+
+void init()
+{
+	glClearColor(1, 1, 1, 1);
+	gluOrtho2D(-2, 2, -2, 2);
+}
 
 void spinDisplay()
 {
@@ -14,17 +20,10 @@ void spinDisplay()
 		spin -= 360;
 
 	x = cos(degToRad * spin);
-	y = sin(degToRad * spin);
+	y = -sin(degToRad * spin);
 
 	glutSetWindow(doubleb);
 	glutPostRedisplay();
-}
-
-void myInit()
-{
-	glClearColor(1.0, 1.0, 1.0, 0.0);
-	glColor3f(1, 0, 0);
-	gluOrtho2D(-2, 2, -2, 2);
 }
 
 void myMouse(int button, int state, int x, int y)
@@ -63,24 +62,24 @@ void displayDouble()
 	glutSwapBuffers();
 }
 
-int main(int argc, char** argv)
+void main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(500, 500);
-	glutCreateWindow("Single Buffer");
-	myInit();
+	glutInitWindowSize(400, 400);
+	glutCreateWindow("Square");
+	init();
 	glutDisplayFunc(displaySingle);
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(500, 500);
-	glutInitWindowPosition(500, 0);
-	doubleb = glutCreateWindow("Double Buffer");
-	myInit();
-	glutMouseFunc(myMouse);
+	glutInitWindowSize(400, 400);
+	glutInitWindowPosition(400, 0);
+	doubleb = glutCreateWindow("Square spin");
+	init();
 	glutDisplayFunc(displayDouble);
 	glutIdleFunc(spinDisplay);
+	glutMouseFunc(myMouse);
 
 	glutMainLoop();
 }

@@ -68,7 +68,9 @@ void myReshape(int w, int h)
 	else
 		glOrtho(-2.0 * (GLfloat)w / (GLfloat)h, 2.0 * (GLfloat)w / (GLfloat)h, 
 			-2.0, 2.0, -10.0, 10.0);
+	
 	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 
 void main(int argc, char** argv)

@@ -115,15 +115,13 @@ void cohenSuther(double x1, double y1, double x2, double y2)
 void myInit()
 {
 	glClearColor(1, 1, 1, 0);
+	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1, 0, 0);
-	glPointSize(1.0);
 	gluOrtho2D(0, 500, 0, 500);
 }
 
 void display()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
-
 	glColor3f(0, 0, 1);		//Window
 	glBegin(GL_LINE_LOOP);
 		glVertex2f(xmin, ymin);

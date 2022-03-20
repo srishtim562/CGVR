@@ -62,7 +62,6 @@ void myInit()
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.0, 0.0, 1.0);
-	glPointSize(1);
 	gluOrtho2D(0, wx, 0, wy);
 }
 

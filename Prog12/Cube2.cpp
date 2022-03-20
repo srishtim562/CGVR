@@ -33,11 +33,6 @@ void display()
 	glRotatef(theta[2], 0.0, 0.0, 1.0);
 
 	glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
-
-	glBegin(GL_LINES);
-		glVertex3f(0.0, 0.0, 0.0);
-		glVertex3f(1.0, 1.0, 1.0);
-	glEnd();
 	glFlush();
 }
 

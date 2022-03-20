@@ -54,7 +54,6 @@ void displayFilledPolygon()
 		glVertex2f(x[i], y[i]);
 	glEnd();
 	scanFill(x, y);
-	glFlush();
 }
 
 void myInit()

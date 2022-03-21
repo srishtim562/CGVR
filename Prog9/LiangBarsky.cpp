@@ -8,7 +8,6 @@ int n;
 struct lineSegment {
 	int x1, y1, x2, y2;
 };
-
 struct lineSegment ls[10];
 
 int cliptest(double p, double q, double* u1, double* u2)

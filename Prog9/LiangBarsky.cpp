@@ -7,10 +7,7 @@ double xvmin, yvmin, xvmax, yvmax; //200 200 300 300
 int n;
 
 struct line_segment {
-	int x1;
-	int y1;
-	int x2;
-	int y2;
+	int x1, y1, x2, y2;
 };
 
 struct line_segment ls[10];
